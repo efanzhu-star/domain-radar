@@ -1,0 +1,67 @@
+name: 领域雷达-DeepSeek对比
+
+on:
+  schedule:
+    - cron: "0 23 * * 0"   # 每周一北京时间 07:00 自动生成对照版周报（beta）
+  workflow_dispatch:
+    inputs:
+      kind:
+        description: "生成哪种（daily 或 weekly）"
+        required: true
+        default: "weekly"
+
+permissions:
+  contents: write
+  issues: write
+
+concurrency:
+  group: radar-deepseek
+  cancel-in-progress: false
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: 取出仓库
+        uses: actions/checkout@v4
+
+      - name: 准备 Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: 安装依赖
+        run: pip install requests
+
+      - name: 运行 DeepSeek 对比版
+        env:
+          DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
+          TAVILY_API_KEY: ${{ secrets.TAVILY_API_KEY }}
+        run: python radar_deepseek.py ${{ github.event.inputs.kind || 'weekly' }}
+
+      - name: 提交对比稿
+        run: |
+          git config user.name "radar-bot"
+          git config user.email "radar-bot@users.noreply.github.com"
+          git pull --rebase
+          git add briefs-deepseek
+          git diff --cached --quiet || git commit -m "DeepSeek对比稿 $(date +%F)"
+          git push
+
+      - name: 失败时自动开 Issue 提醒
+        if: failure()
+        uses: actions/github-script@v7
+        with:
+          script: |
+            await github.rest.issues.create({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              title: `❌ DeepSeek对照版失败 ${new Date().toISOString().slice(0, 16)} UTC`,
+              body: [
+                "本周的 DeepSeek 对照稿没有生成。点开日志定位：",
+                `${context.serverUrl}/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}`,
+                "",
+                "常见原因：DEEPSEEK_API_KEY / TAVILY_API_KEY 失效或额度用尽；Tavily 返回过少。",
+              ].join("\n"),
+            });
