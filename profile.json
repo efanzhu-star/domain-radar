@@ -1,0 +1,48 @@
+{
+  "channel_name": "领域雷达 · AI影视应用",
+  "channel_description": "每天自动扫描 AI 影视 / AI 视频生成赛道的最新进展，归纳成研报并生成播客。",
+  "language": "zh-cn",
+
+  "podcast_mode": "duo",
+  "tts_endpoint": "https://api.minimaxi.chat/v1/t2a_v2",
+  "tts_model": "speech-2.6-hd",
+  "voice_a": "presenter_male",
+  "voice_b": "presenter_female",
+  "voice_solo": "presenter_male",
+  "speech_speed": 1.0,
+
+  "entities": [
+    "Google Veo (Veo 3.1 / Flow)", "OpenAI Sora (Sora 2, 停运中)", "Runway (Gen-4.5)",
+    "快手 可灵 Kling (Kling 3.0)", "字节 即梦/Seedance", "阿里 通义万相 Wan",
+    "MiniMax 海螺 Hailuo", "Luma (Dream Machine / Ray3)", "Pika", "生数 Vidu",
+    "腾讯 混元 Hunyuan Video", "Lightricks LTX", "Adobe Firefly Video",
+    "Synthesia / HeyGen (数字人)", "fal.ai / Krea / Higgsfield (模型聚合)"
+  ],
+  "dimensions": [
+    "模型发布与能力更新（音频/时长/一致性）", "产品与工具上线", "融资 / 并购 / 商业化",
+    "影视与广告行业采用（制片厂 / 短剧 / 广告）", "政策 / 版权 / 演员与劳工",
+    "开源与权重发布", "基准与榜单（Artificial Analysis Video Arena）"
+  ],
+  "terms_en": [
+    "AI video generation", "text-to-video", "image-to-video", "Veo 3.1", "Sora 2",
+    "Runway Gen-4.5", "Kling", "Seedance", "Hailuo", "Luma Ray3", "Pika",
+    "AI filmmaking", "lip sync", "world model", "video diffusion"
+  ],
+  "terms_zh": [
+    "AI视频生成", "文生视频", "图生视频", "可灵", "即梦", "海螺", "通义万相",
+    "生数 Vidu", "混元视频", "AI影视", "AI短剧", "数字人", "视频大模型", "角色一致性"
+  ],
+  "sources": [
+    "The Verge (https://www.theverge.com)",
+    "TechCrunch (https://techcrunch.com)",
+    "VentureBeat AI (https://venturebeat.com/category/ai/)",
+    "机器之心 (https://www.jiqizhixin.com)",
+    "量子位 (https://www.qbitai.com)",
+    "36氪 (https://36kr.com)",
+    "r/aivideo (https://www.reddit.com/r/aivideo/.rss)",
+    "r/StableDiffusion (https://www.reddit.com/r/StableDiffusion/.rss)",
+    "Artificial Analysis · Video Arena (https://artificialanalysis.ai)",
+    "Runway 官方博客 (https://runwayml.com/research)"
+  ],
+  "negatives": ["优惠码", "coupon", "promo code", "折扣", "giveaway", "新手教程", "how to make money"]
+}
