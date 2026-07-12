@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd">
+  <channel>
+    <title>领域雷达 · AI影视应用</title>
+    <link>https://efanzhu-star.github.io/domain-radar</link>
+    <description>每天自动扫描 AI 影视 / AI 视频生成赛道的最新进展，归纳成研报并生成播客。</description>
+    <language>zh-cn</language>
+    <lastBuildDate>Sun, 12 Jul 2026 08:07:12 +0000</lastBuildDate>
+    <itunes:author>领域雷达</itunes:author>
+    <itunes:explicit>false</itunes:explicit>
+    <item>
+      <title>AI影视 · 本周深度 · 7月11日</title>
+      <description>信息已充分收集。现在综合成稿：</description>
+      <enclosure url="https://efanzhu-star.github.io/domain-radar/episodes/2026-07-11-weekly.mp3" length="6754728" type="audio/mpeg"/>
+      <guid isPermaLink="false">episodes/2026-07-11-weekly.mp3</guid>
+      <pubDate>Sun, 12 Jul 2026 16:07:12 +0800</pubDate>
+    </item>
+  </channel>
+</rss>
