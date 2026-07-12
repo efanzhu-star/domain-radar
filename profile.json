@@ -4,7 +4,7 @@
   "language": "zh-cn",
 
   "podcast_mode": "duo",
-  "tts_endpoint": "https://api.minimaxi.chat/v1/t2a_v2",
+    "tts_endpoint": "https://api.minimaxi.com/v1/t2a_v2",
   "tts_model": "speech-2.6-hd",
   "voice_a": "presenter_male",
   "voice_b": "presenter_female",
